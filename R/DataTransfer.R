@@ -104,7 +104,7 @@ DataTransfer <-
 
   httr::stop_for_status(response)
 
-  content = jsonlite::fromJSON(content(response, "text", encoding = 'UTF-8'),
+  content = jsonlite::fromJSON(httr::content(response, "text", encoding = 'UTF-8'),
                      simplifyVector = FALSE)
   if (length(content) == 0) {
     stop("no files available for that product / date")
